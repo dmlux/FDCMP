@@ -6,13 +6,13 @@ The FDCMP tool can be used to compare the content of all recursive occurrences o
 
 To compile the project a CMakeLists.txt file is delivered that can be used by cmake. To compile the project to a binary the following commands can be used:
 
-`mkdir ~/FDCMP <\br>
- cd ~/FDCMP <\br>
- cmake <PATH_TO_PROJECT_DIRECTORY> <\br>
- make`
+```mkdir ~/FDCMP
+ cd ~/FDCMP
+ cmake <PATH_TO_PROJECT_DIRECTORY>
+ make```
 
 After those commands, the binary is located in `~/FDCMP/fdcmp`. The application uses the `-fopenmp` flag to make use of multi core systems. For that purpose the gcc Compiler with Version >= 4 should be used to compile the binary. To manually change the C Compiler that cmake uses to compile the the sources, the 
 
-`export CC=<PATH_TO_CUSTOM_GCC>`
+```export CC=<PATH_TO_CUSTOM_GCC>```
 
 command can be used before the `cmake <PATH_TO_PROJECT_DIRECTORY>` command.
