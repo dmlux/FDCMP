@@ -1,6 +1,6 @@
 # FDCMP #
 
-The FDCMP tool can be used to compare the content of all recursive occurrences of a specific file. The congruence of those compares is indicated by a relative value. The value 0% indicates that the files have no congruence. The value 100% indicates that both files are exactly identical. The tool uses several special header files that are only available on Mac OS X and Linux. To compare the files the tool processes all combination of files and uses the levenshtein distance to calculate the congruence of those files. 
+The FDCMP tool can be used to compare the content of all recursive occurrences of a specific file. The congruence of those compares is indicated by a relative value. The value 0% indicates that the files have no congruence. The value 100% indicates that both files are exactly identical. The tool uses several special header files that are only available on Mac OS X and Linux. To compare the files the tool processes all combination of those occurrences and calculates with the levenshtein distance a score value that is translated into the relative congruence value. 
 
 ### How do I get set up? ###
 
@@ -11,8 +11,17 @@ cd ~/FDCMP
 cmake <PATH_TO_PROJECT_DIRECTORY>
 make
 ```
-After those commands, the binary is located in `~/FDCMP/fdcmp`. The application uses the `-fopenmp` flag to make use of multi core systems. For that purpose the gcc Compiler with Version >= 4 should be used to compile the binary. To manually change the C Compiler that cmake uses to compile the the sources, the 
+After those commands, the binary is located in `~/FDCMP/fdcmp`. CMake uses the `-fopenmp` flag to compile a multi-threaded version of FDCMP. For that purpose the gcc Compiler with Version >= 4 should be taken by CMake to compile the binary. To manually change the C Compiler the command
 ```
 export CC=<PATH_TO_CUSTOM_GCC>
 ```
-command can be used before the `cmake <PATH_TO_PROJECT_DIRECTORY>` command.
+should be entered before the `cmake <PATH_TO_PROJECT_DIRECTORY>` command. If no suitable GCC compiler is installed on the system, the application will be compiled without taking advantage of multiple cores. The execution time of the multi-threaded version can be much shorter compared to the sequential version depending on the system. 
+
+### How should I use the application? ###
+
+The FDCMP tool takes 2 parameters and one optional parameter. To run the application a `directory` for a starting point in the file tree of the system should be entered. In this file tree the application is searching recursivly all occurrences of the given `file`. This file is the second parameter. Optionally a `limit` value can be mentioned. For example the following commands can be executed
+```
+./fdcmp <PATH_TO_SOME_DIRECTORY> <FILE_NAME>
+./fdcmp <PATH_TO_SOME_DIRECTORY> <FILE_NAME> [<LIMIT_AS_DOUBLE_VALUE>]
+```
+The limit value is used by the application to filter out some output. If no limit was entered to the application the output contains all congruence values for all file combinations, which can be very much if there are a lot of occurences. If a limit value was entered the output contains only those files that congruence value exceeds the limit including the limit value itself.
