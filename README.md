@@ -23,5 +23,8 @@ The FDCMP tool takes 2 parameters and one optional parameter. To run the applica
 ```
 ./fdcmp <PATH_TO_SOME_DIRECTORY> <FILE_NAME>
 ./fdcmp <PATH_TO_SOME_DIRECTORY> <FILE_NAME> [<LIMIT_AS_DOUBLE_VALUE>]
+
+./fdcmp ~/Desktop/ example.txt
+./fdcmp ~/Desktop/ example.txt 90
 ```
 The limit value is used by the application to filter out some output. If no limit was entered to the application the output contains all congruence values for all file combinations, which can be very much if there are a lot of occurences. If a limit value was entered the output contains only those files that congruence value exceeds the limit including the limit value itself.
