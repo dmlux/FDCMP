@@ -1,6 +1,6 @@
 # FDCMP #
 
-The FDCMP tool can be used to compare the content of all recursive occurrences of a specific file. The congruence of those compares is indicated by a relative value. The value 0% indicates that the files have no congruence. The value 100% indicates that both files are exactly identical. The tool uses several special header files that are only available on Mac OS X and Linux. To compare the files the tool processes all combination of those occurrences and calculates with the levenshtein distance a score value that is translated into the relative congruence value. 
+The FDCMP tool can be used to compare the content of all recursive occurrences of a specific file. The congruence of those compares is indicated by a relative value. The value 0% indicates that the files have no congruence. The value 100% indicates that both files are exactly identical. The tool uses several special header files that are only available on Mac OS X and Linux. To compare the files the tool processes all combination of those occurrences and calculates a score value that is translated into the relative congruence value by use of the levenshtein distance. 
 
 ### How do I get set up? ###
 
