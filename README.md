@@ -4,7 +4,7 @@ The FDCMP tool can be used to compare the content of all recursive occurrences o
 
 ### How do I get set up? ###
 
-To compile the project a CMakeLists.txt file is delivered that can be used by cmake. To compile the project to a binary the following commands can be used:
+To compile the project a CMakeLists.txt file is delivered that can be used by cmake. To compile the project into a binary the following commands can be used:
 ```
 mkdir ~/FDCMP
 cd ~/FDCMP
